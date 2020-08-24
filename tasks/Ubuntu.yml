@@ -1,9 +1,12 @@
 ---
 - name: Installing ufw packages
-  package:
-    name: "{{ item }}"
+  apt:
+    pkg: "{{ packages }}"
     state: present
-  with_items: "{{ ufw_packages }}"
+    update_cache: yes
+    cache_valid_time: 3600
+  vars:
+    packages: "{{ ufw_packages }}"
 
 - name: Resetting firewall
   ufw:
