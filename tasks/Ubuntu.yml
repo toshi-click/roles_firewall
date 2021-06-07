@@ -73,3 +73,10 @@
     group: root
     mode: 0644
   notify: reload ufw
+
+- name: Install gufw packages
+  apt:
+    pkg: gufw
+    state: present
+    update_cache: yes
+    cache_valid_time: 3600
