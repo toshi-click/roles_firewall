@@ -49,6 +49,7 @@
     owner: root
     group: root
     mode: 0644
+    backup: true
   notify: reload ufw
 
 - name: Configuring service
@@ -63,6 +64,7 @@
     owner: root
     group: root
     mode: 0644
+    backup: true
   notify: reload ufw
 
 - name: Configuring after.rules for docker
@@ -72,6 +74,7 @@
     owner: root
     group: root
     mode: 0644
+    backup: true
   notify: reload ufw
 
 - name: Install gufw packages
