@@ -1,12 +1,10 @@
 ---
-- name: Installing ufw packages
-  apt:
-    pkg: "{{ packages }}"
+- name: Install ufw
+  ansible.builtin.package:
+    name:
+      - ufw
+      - gufw
     state: present
-    update_cache: yes
-    cache_valid_time: 3600
-  vars:
-    packages: "{{ ufw_packages }}"
 
 - name: Resetting firewall
   ufw:
@@ -76,10 +74,3 @@
     mode: 0644
     backup: true
   notify: reload ufw
-
-- name: Install gufw packages
-  apt:
-    pkg: gufw
-    state: present
-    update_cache: yes
-    cache_valid_time: 3600
